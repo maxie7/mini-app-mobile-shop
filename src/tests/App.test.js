@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { render, screen } from '@testing-library/react';
 import App from '../App';
-import Header from "../components/header/header.component";
+import Header from "../components/Header/Header.component";
 import {BrowserRouter} from "react-router-dom";
 
 describe('MainApp', () => {
@@ -16,7 +16,7 @@ describe('MainApp', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('has a header component', () => {
+  it('has a Header component', () => {
     render(
       <BrowserRouter>
         <Header />

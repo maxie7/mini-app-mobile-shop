@@ -1,7 +1,7 @@
 import React from "react";
 import {shallow} from "enzyme";
-import Item from "../../components/item/item.component";
+import Item from "../../components/Item/Item.component";
 
-it('should render item section', () => {
+it('should render Item section', () => {
   expect(shallow(<Item />)).toMatchSnapshot();
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ItemContainer } from "./item.styles";
+import { ItemContainer } from "./Item.styles";
 
 const Item = ({ id, brand, model, price }) => {
   return (

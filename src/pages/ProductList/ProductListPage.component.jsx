@@ -1,6 +1,6 @@
 import React from "react";
-import { ProductListPageContainer } from "./product-list-page.styles";
-import Item from "../../components/item/item.component";
+import { ProductListPageContainer } from "./ProductListPage.styles";
+import Item from "../../components/Item/Item.component";
 
 const ProductListPage = () => (
   <ProductListPageContainer>

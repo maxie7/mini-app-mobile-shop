@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderContainer, LogoContainer, TitleContainer } from "./header.styles";
+import { HeaderContainer, LogoContainer, TitleContainer } from "./Header.styles";
 import { ReactComponent as Logo } from "../../assets/img/shop-logo.svg";
 
 const Header = () => (

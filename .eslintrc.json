@@ -12,17 +12,18 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
+    "ecmaVersion": 2020,
     "sourceType": "module"
   },
   "plugins": [
     "react",
+    "eslint-plugin-react",
     "jest"
   ],
   "rules": {
     "react/jsx-uses-react": "warn",
     "react/jsx-uses-vars": "warn",
-    "no-console": "error"
+    "no-console": "warn"
   },
   "settings": {
     "react": {

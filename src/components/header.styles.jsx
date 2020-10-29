@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.div`
   height: 70px;
@@ -12,4 +13,27 @@ export const HeaderContainer = styled.div`
     padding: 10px;
     margin-bottom: 20px;
   }  
+`;
+
+export const LogoContainer = styled(Link)`
+  height: 100%;
+  width: 70px;
+  padding: 12px;
+  
+  @media screen and (max-width: 800px) {
+    width: 50px;
+    padding: 0;
+  }  
+`;
+
+export const TitleContainer = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  @media screen and (max-width: 800px) {
+    width: 80%;
+  }
 `;

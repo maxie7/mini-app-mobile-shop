@@ -1,9 +1,15 @@
 import React from "react";
-import { HeaderContainer } from './header.styles';
+import {HeaderContainer, LogoContainer, TitleContainer} from "./header.styles";
+import { ReactComponent as Logo } from "../assets/img/shop-logo.svg";
 
 const Header = () => (
   <HeaderContainer>
-    <div>Awesome Smartphones</div>
+    <LogoContainer to="/">
+      <Logo className='logo' />
+    </LogoContainer>
+    <TitleContainer>
+      <h3>Awesome Smartphones</h3>
+    </TitleContainer>
   </HeaderContainer>
 )
 

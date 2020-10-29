@@ -4,7 +4,9 @@ import Item from "../../components/item/item.component";
 
 const ProductListPage = () => (
   <ProductListPageContainer>
-    <Item key={apiResponse[0].id} brand={apiResponse[0].brand} model={apiResponse[0].model} price={apiResponse[0].price} />
+    {apiResponse.map( item => (
+      <Item key={item.id} brand={item.brand} model={item.model} price={item.price} />
+    ))}
   </ProductListPageContainer>
 )
 
@@ -36,6 +38,34 @@ const apiResponse = [
     "model": "Iconia Tab 10 A3-A40",
     "price": "230",
     "imgUrl": "https://front-test-api.herokuapp.com/images/xyPoqGJxYR4Nn3yVGQcfI.jpg"
+  },
+  {
+    "id": "ND1elEt4nqZrCeFflDUZ2",
+    "brand": "Acer",
+    "model": "Liquid X2",
+    "price": "230",
+    "imgUrl": "https://front-test-api.herokuapp.com/images/ND1elEt4nqZrCeFflDUZ2.jpg"
+  },
+  {
+    "id": "pMZMhe_ZaAPZoaCCtlDrg",
+    "brand": "Acer",
+    "model": "Liquid Jade 2",
+    "price": "",
+    "imgUrl": "https://front-test-api.herokuapp.com/images/pMZMhe_ZaAPZoaCCtlDrg.jpg"
+  },
+  {
+    "id": "ke-gsQbO8qH9PQ-zcdiAJ",
+    "brand": "Acer",
+    "model": "Liquid Zest Plus",
+    "price": "200",
+    "imgUrl": "https://front-test-api.herokuapp.com/images/ke-gsQbO8qH9PQ-zcdiAJ.jpg"
+  },
+  {
+    "id": "meQvyTcXACAwWn3wCKSw6",
+    "brand": "Acer",
+    "model": "Liquid Zest",
+    "price": "110",
+    "imgUrl": "https://front-test-api.herokuapp.com/images/meQvyTcXACAwWn3wCKSw6.jpg"
   },
 ];
 

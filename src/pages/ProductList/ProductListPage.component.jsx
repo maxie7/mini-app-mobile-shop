@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ProductListPageContainer } from "./ProductListPage.styles";
 import Item from "../../components/Item/Item.component";
 import { usersAPI } from "../../api/api";
+import { Loading } from "arwes";
 
 const ProductListPage = () => {
   const [productsData, setProductsData] = useState(null);
@@ -16,7 +17,11 @@ const ProductListPage = () => {
   }, [])
 
   if (productsData === null) {
-    return <p>Loading products...</p>;
+    return (
+      <div>
+        <Loading animate />
+        <p>Loading products...</p>
+      </div>);
   }
 
   return (

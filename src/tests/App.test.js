@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import { render, screen } from '@testing-library/react';
 import App from '../App';
 import Header from "../components/Header/Header.component";
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { createTheme, ThemeProvider } from "arwes";
+import { customTheme } from "../assets/styles/customThemeArwes";
 
 describe('MainApp', () => {
 
@@ -19,7 +21,9 @@ describe('MainApp', () => {
   it('has a Header component', () => {
     render(
       <BrowserRouter>
-        <Header />
+        <ThemeProvider theme={createTheme(customTheme)}>
+          <Header />
+        </ThemeProvider>
       </BrowserRouter>
       );
     const linkElement = screen.getByText(/awesome smartphones/i);

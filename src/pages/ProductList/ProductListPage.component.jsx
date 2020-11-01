@@ -3,6 +3,7 @@ import { ProductListPageContainer } from "./ProductListPage.styles";
 import Item from "../../components/Item/Item.component";
 import { usersAPI } from "../../api/api";
 import { Loading } from "arwes";
+import Searcher from "../../components/Searcher/Searcher.component";
 
 const ProductListPage = () => {
   const [productsData, setProductsData] = useState(null);
@@ -25,11 +26,14 @@ const ProductListPage = () => {
   }
 
   return (
+  <>
+    <Searcher />
     <ProductListPageContainer>
       {productsData.map(item => (
-        <Item key={item.id} brand={item.brand} model={item.model} price={item.price}/>
+        <Item key={item.id} brand={item.brand} model={item.model} price={item.price} />
       ))}
     </ProductListPageContainer>
+  </>
   )
 }
 

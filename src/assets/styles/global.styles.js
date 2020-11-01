@@ -1,12 +1,14 @@
 import { createGlobalStyle } from "styled-components";
+import "fontsource-electrolize";
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    //font-family: 'Open Sans Condensed';
+    font-family: "Electrolize", sans-serif;
     padding: 20px 40px;
     text-align: center;
       
     @media screen and (max-width: 800px) {
+      overflow-y: hidden;
       padding: 10px;
     }  
   }

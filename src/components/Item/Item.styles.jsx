@@ -4,10 +4,7 @@ export const ItemContainer = styled.div`
   background: #021114;
   display: flex;
   flex-direction: column;
-  //background-color: rgba(149, 218, 218, 0.7);
-  //border: 1px solid grey;
-  //border-radius: 5px;
-  //padding: 25px;
+  font-family: "Electrolize", sans-serif;
   cursor: pointer;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
@@ -17,5 +14,12 @@ export const ItemContainer = styled.div`
   
   &:hover {
     transform: scale(1.1);
+  }
+  
+  @media screen and (max-width: 800px) {
+    width: 42vw;
+    
+    &:hover {
+      transform: unset;
   }
 `;

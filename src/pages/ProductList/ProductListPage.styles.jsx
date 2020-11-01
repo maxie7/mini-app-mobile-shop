@@ -6,4 +6,15 @@ export const ProductListPageContainer = styled.div`
   grid-gap: 20px;
   margin: 0 auto;
   width: 85vw;
+  
+  & > div {
+    margin-bottom: 6px;
+  }
+  
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    min-width: unset;
+    width: 90%;
+  }
 `;

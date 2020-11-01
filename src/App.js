@@ -3,8 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import { ThemeProvider, createTheme, Arwes } from 'arwes';
 import Header from "./components/Header/Header.component";
 import ProductListPage from "./pages/ProductList/ProductListPage.component";
-import {customTheme} from "./assets/styles/customThemeArwes";
-import {GlobalStyle} from "./assets/styles/global.styles";
+import { customTheme } from "./assets/styles/customThemeArwes";
+import { GlobalStyle } from "./assets/styles/global.styles";
 
 const App = () => (
   <ThemeProvider theme={createTheme(customTheme)}>

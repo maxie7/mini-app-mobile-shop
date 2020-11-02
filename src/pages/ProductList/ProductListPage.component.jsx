@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { ProductListPageContainer } from "./ProductListPage.styles";
-import Item from "../../components/Item/Item.component";
+import { ProductListPageContainer, LoadingPageContainer } from "./ProductListPage.styles";
+import MobileItem from "./MobileItem/MobileItem.component";
 import { usersAPI } from "../../api/api";
 import { Loading } from "arwes";
 import Searcher from "../../components/Searcher/Searcher.component";
 
 const ProductListPage = () => {
-  const [productsData, setProductsData] = useState(null);
+  const [productsData, setProductsData] = useState(undefined);
 
   useEffect( () => {
     const getProductData = async () => {
@@ -17,20 +17,20 @@ const ProductListPage = () => {
     getProductData();
   }, [])
 
-  if (productsData === null) {
+  if (!productsData) {
     return (
-      <div>
+      <LoadingPageContainer>
         <Loading animate />
         <p>Loading products...</p>
-      </div>);
+      </LoadingPageContainer>);
   }
 
   return (
   <>
     <Searcher />
     <ProductListPageContainer>
-      {productsData.map(item => (
-        <Item key={item.id} brand={item.brand} model={item.model} price={item.price} />
+      {productsData.map(mobileItem => (
+        <MobileItem key={mobileItem.id} brand={mobileItem.brand} model={mobileItem.model} price={mobileItem.price} />
       ))}
     </ProductListPageContainer>
   </>

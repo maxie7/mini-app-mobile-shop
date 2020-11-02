@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SearcherContainer } from "./Searcher.styles";
+import {SearcherInput, SearcherContainer} from "./Searcher.styles";
 import { Frame } from "arwes";
 
 const Searcher = (
@@ -16,11 +16,7 @@ const Searcher = (
       corners={4}
       layer='header'
     >
-    <input
-      type='search'
-      // placeholder={placeholder}
-      // onChange={handleChange}
-    />
+      <SearcherInput type='search' />
     </Frame>
   </SearcherContainer>
 );

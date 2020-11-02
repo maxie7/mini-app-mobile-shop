@@ -8,7 +8,7 @@ export const ProductListPageContainer = styled.div`
   width: 85vw;
   
   & > div {
-    margin-bottom: 6px;
+    margin-bottom: 2px;
   }
   
   @media screen and (max-width: 800px) {
@@ -17,4 +17,8 @@ export const ProductListPageContainer = styled.div`
     min-width: unset;
     width: 90%;
   }
+`;
+
+export const LoadingPageContainer = styled.div`
+  font-family: "Electrolize", sans-serif;
 `;

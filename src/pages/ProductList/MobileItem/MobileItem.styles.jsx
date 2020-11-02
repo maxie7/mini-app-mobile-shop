@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ItemContainer = styled.div`
+export const MobileItemContainer = styled.div`
   background: #021114;
   display: flex;
   flex-direction: column;

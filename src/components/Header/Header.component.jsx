@@ -6,7 +6,7 @@ import { Heading } from "arwes";
 const Header = () => (
   <HeaderContainer>
     <LogoContainer to="/">
-      <Logo className='logo' />
+      <Logo />
     </LogoContainer>
     <TitleContainer>
       <Heading node='h3'>Awesome Smartphones</Heading>

@@ -6,18 +6,23 @@ import { Loading } from "arwes";
 import Searcher from "../../components/Searcher/Searcher.component";
 
 const ProductListPage = () => {
-  const [productsData, setProductsData] = useState(undefined);
+  const [ mobilesData, setMobilesData ] = useState(undefined);
+  const [ searchField, setSearchField ] = useState('');
 
   useEffect( () => {
     const getProductData = async () => {
       const result = await usersAPI.requestProducts();
-      setProductsData(result.data);
+      setMobilesData(result.data);
     };
 
     getProductData();
-  }, [])
+  }, []);
 
-  if (!productsData) {
+  const handleChange = e => {
+    setSearchField(e.target.value);
+  }
+
+  if (!mobilesData) {
     return (
       <LoadingPageContainer>
         <Loading animate />
@@ -25,11 +30,18 @@ const ProductListPage = () => {
       </LoadingPageContainer>);
   }
 
+  let filteredMobiles = mobilesData.filter(mobile => {
+    return (
+      mobile.model.toLowerCase().includes(searchField.toLowerCase()) ||
+      mobile.brand.toLowerCase().includes(searchField.toLowerCase())
+    )
+  });
+
   return (
   <>
-    <Searcher />
+    <Searcher placeholder='search a ...' handleChange={handleChange} />
     <ProductListPageContainer>
-      {productsData.map(mobileItem => (
+      {filteredMobiles.map(mobileItem => (
         <MobileItem key={mobileItem.id} brand={mobileItem.brand} model={mobileItem.model} price={mobileItem.price} />
       ))}
     </ProductListPageContainer>

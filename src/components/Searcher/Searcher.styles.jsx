@@ -14,10 +14,8 @@ export const SearcherContainer = styled.div`
 `;
 
 export const SearcherInput = styled.input`
-  background: none;
+  background: transparent none;
   border: none;
-  background-image: none;
-  //background-color: transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -27,6 +25,7 @@ export const SearcherInput = styled.input`
   
   &:focus {
     background: none;
-    border: none;
+    border: 2px solid #f458f2;
+    border-radius: unset;
   }
 `;

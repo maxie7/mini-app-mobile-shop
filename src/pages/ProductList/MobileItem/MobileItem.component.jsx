@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { MobileItemContainer } from "./MobileItem.styles";
 import { Image, Frame } from "arwes";
+import { NavLink } from "react-router-dom";
 
 const MobileItem = ({ id, brand, model, price, imgUrl }) => {
   const [showFrame, setShowFrame] = useState(false);
@@ -22,11 +23,13 @@ const MobileItem = ({ id, brand, model, price, imgUrl }) => {
       layer='primary'
     >
       <MobileItemContainer key={ id }>
-        <Image animate resources={ imgUrl }>
-          <p>{ brand }</p>
-          <p>{ model }</p>
-          { price && <p>{ price } €</p> }
-        </Image>
+        <NavLink to={'/product/' + id}>
+          <Image animate resources={ imgUrl }>
+            <p>{ brand }</p>
+            <p>{ model }</p>
+            { price && <p>{ price } €</p> }
+          </Image>
+        </NavLink>
       </MobileItemContainer>
     </Frame>
   )

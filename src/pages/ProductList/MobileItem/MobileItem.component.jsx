@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import { MobileItemContainer } from "./MobileItem.styles";
-import { Frame } from "arwes";
+import { Image, Frame } from "arwes";
 
-const MobileItem = ({ id, brand, model, price }) => {
+const MobileItem = ({ id, brand, model, price, imgUrl }) => {
   const [showFrame, setShowFrame] = useState(false);
 
   useEffect(() => {
@@ -22,21 +22,22 @@ const MobileItem = ({ id, brand, model, price }) => {
       layer='primary'
     >
       <MobileItemContainer key={ id }>
-        <p>{ brand }</p>
-        <p>{ model }</p>
-        <p>{ price }</p>
+        <Image animate resources={ imgUrl }>
+          <p>{ brand }</p>
+          <p>{ model }</p>
+          { price && <p>{ price } €</p> }
+        </Image>
       </MobileItemContainer>
     </Frame>
   )
 }
 
 MobileItem.propTypes = {
-  id: PropTypes.string,
-  brand: PropTypes.string,
-  model: PropTypes.string,
-  price: PropTypes.string
+  id:     PropTypes.string,
+  brand:  PropTypes.string,
+  model:  PropTypes.string,
+  price:  PropTypes.string,
+  imgUrl: PropTypes.string
 };
 
 export default MobileItem;
-
-

@@ -8,7 +8,7 @@ export const MobileItemContainer = styled.div`
   cursor: pointer;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
-  padding: 20px 40px;
+  padding: 10px;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
   

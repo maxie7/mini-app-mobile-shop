@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import { ThemeProvider, createTheme, Arwes } from 'arwes';
 import Header from "./components/Header/Header.component";
 import ProductListPage from "./pages/ProductList/ProductListPage.component";
+import ProductDetailsPage from "./pages/ProductDetails/ProductDetailsPage.component";
 import { customTheme } from "./assets/styles/customThemeArwes";
 import { GlobalStyle } from "./assets/styles/global.styles";
 
@@ -13,7 +14,8 @@ const App = () => (
         <GlobalStyle />
         <Header />
         <Switch>
-          <Route exact path='/' component={ProductListPage}/>
+          <Route exact path='/product/:id?' component={ProductDetailsPage} />
+          <Route exact path='/' component={ProductListPage} />
         </Switch>
       </div>
     </Arwes>

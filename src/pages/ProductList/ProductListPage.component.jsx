@@ -45,7 +45,12 @@ const ProductListPage = () => {
     <Searcher placeholder='search a ...' handleChange={handleChange} />
     <ProductListPageContainer>
       {filteredMobiles.map(mobileItem => (
-        <MobileItem key={mobileItem.id} brand={mobileItem.brand} model={mobileItem.model} price={mobileItem.price} />
+        <MobileItem key={mobileItem.id}
+                    brand={mobileItem.brand}
+                    model={mobileItem.model}
+                    price={mobileItem.price}
+                    imgUrl={mobileItem.imgUrl}
+        />
       ))}
     </ProductListPageContainer>
   </>

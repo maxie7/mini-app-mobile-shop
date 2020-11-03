@@ -1,6 +1,6 @@
 import React from 'react';
-import {Paragraph, Project} from "arwes";
 import PropTypes from 'prop-types';
+import {Paragraph, Project} from "arwes";
 
 const MobileInfo = ({mobileItemData}) => {
 
@@ -23,7 +23,7 @@ const MobileInfo = ({mobileItemData}) => {
 }
 
 MobileInfo.propTypes = {
-  mobileItemData: PropTypes.Object
+  mobileItemData: PropTypes.object
 }
 
 export default MobileInfo;

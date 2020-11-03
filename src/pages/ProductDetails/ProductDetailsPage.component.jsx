@@ -37,29 +37,17 @@ const ProductDetailsPage = () => {
   return (
     <>
       <LinkContainer to='/'>
-        <Button animate>Back</Button>
+        <Button animate layer='primary'>Back</Button>
       </LinkContainer>
+
       <ProductDetailsPageContainer>
+        
         <ImageContainer>
           <Image animate resources={mobileItemData.imgUrl} />
         </ImageContainer>
 
         <DescriptionContainer>
           <MobileInfo mobileItemData={mobileItemData} />
-          {/*<Project animate header='DESCRIPTION'>*/}
-          {/*  <Paragraph>Brand: {mobileItemData.brand}</Paragraph>*/}
-          {/*  <Paragraph>Model: {mobileItemData.model}</Paragraph>*/}
-          {/*  <Paragraph>Price: {mobileItemData.price} €</Paragraph>*/}
-          {/*  <Paragraph>CPU: {mobileItemData.cpu}</Paragraph>*/}
-          {/*  <Paragraph>RAM: {mobileItemData.ram}</Paragraph>*/}
-          {/*  <Paragraph>OS: {mobileItemData.os}</Paragraph>*/}
-          {/*  <Paragraph>Resolution: {mobileItemData.displayResolution}</Paragraph>*/}
-          {/*  <Paragraph>Battery: {mobileItemData.battery}</Paragraph>*/}
-          {/*  <Paragraph>Camera: {mobileItemData.primaryCamera}</Paragraph>*/}
-          {/*  { mobileItemData.secondaryCmera && <Paragraph>2nd Camera: { mobileItemData.secondaryCmera }</Paragraph> }*/}
-          {/*  <Paragraph>Dimensions: {mobileItemData.dimentions}</Paragraph>*/}
-          {/*  { mobileItemData.weight && <Paragraph>Weight: { mobileItemData.weight } g</Paragraph> }*/}
-          {/*</Project>*/}
         </DescriptionContainer>
 
         <ActionsContainer>

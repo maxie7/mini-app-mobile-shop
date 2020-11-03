@@ -14,7 +14,7 @@ const App = () => (
         <GlobalStyle />
         <Header />
         <Switch>
-          <Route path='/product/:id?' render={ () => <ProductDetailsPage />} />
+          <Route path='/product/:id?' component={ProductDetailsPage} />
           <Route exact path='/' component={ProductListPage} />
         </Switch>
       </div>

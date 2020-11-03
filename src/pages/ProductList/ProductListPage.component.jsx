@@ -3,7 +3,7 @@ import { ProductListPageContainer, LoadingPageContainer } from "./ProductListPag
 import MobileItem from "./MobileItem/MobileItem.component";
 import { API } from "../../api/api";
 import { Loading } from "arwes";
-import Searcher from "../../components/Searcher/Searcher.component";
+import Searcher from "./Searcher/Searcher.component";
 
 const ProductListPage = () => {
   const [ mobilesData, setMobilesData ] = useState(undefined);
@@ -30,14 +30,10 @@ const ProductListPage = () => {
       </LoadingPageContainer>);
   }
 
-  let filteredMobiles = mobilesData.filter(mobile => {
-    return Object.keys(mobile).some(key =>
-      mobile[key].toLowerCase().includes(searchField.toLowerCase())
+  const filteredMobiles = mobilesData.filter(mobile => {
+    return Object.keys(mobile).some(mobileProperty =>
+      mobile[mobileProperty].toLowerCase().includes(searchField.toLowerCase())
     );
-    // return (
-    //   mobile.model.toLowerCase().includes(searchField.toLowerCase()) ||
-    //   mobile.brand.toLowerCase().includes(searchField.toLowerCase())
-    // )
   });
 
   return (

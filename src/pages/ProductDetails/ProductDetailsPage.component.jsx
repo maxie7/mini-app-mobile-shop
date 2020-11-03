@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { API } from "../../api/api";
-import { LoadingPageContainer } from "../ProductList/ProductListPage.styles";
-import { Button, Paragraph, Project, Loading, Image } from "arwes";
+import { Button, Paragraph, Project, Image } from "arwes";
 import {LinkContainer, ProductDetailsPageContainer} from "./ProductDetailsPage.styles";
+import Preloader from "../../components/Preloader/Preloader";
 
 
 const ProductDetailsPage = () => {
@@ -25,11 +25,7 @@ const ProductDetailsPage = () => {
 
   // The repeated condition >> refactor >> create Loader/Spinner
   if (!mobileItemData) {
-    return (
-      <LoadingPageContainer>
-        <Loading animate />
-        <p>Loading product data...</p>
-      </LoadingPageContainer>);
+    return <Preloader />;
   }
 
   return (

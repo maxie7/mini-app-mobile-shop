@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { ProductListPageContainer, LoadingPageContainer } from "./ProductListPage.styles";
+import { ProductListPageContainer } from "./ProductListPage.styles";
 import MobileItem from "./MobileItem/MobileItem.component";
 import { API } from "../../api/api";
-import { Loading } from "arwes";
 import Searcher from "./Searcher/Searcher.component";
+import Preloader from "../../components/Preloader/Preloader";
 
 const ProductListPage = () => {
   const [ mobilesData, setMobilesData ] = useState(undefined);
@@ -23,11 +23,7 @@ const ProductListPage = () => {
   }
 
   if (!mobilesData) {
-    return (
-      <LoadingPageContainer>
-        <Loading animate />
-        <p>Loading products...</p>
-      </LoadingPageContainer>);
+    return <Preloader />;
   }
 
   const filteredMobiles = mobilesData.filter(mobile => {

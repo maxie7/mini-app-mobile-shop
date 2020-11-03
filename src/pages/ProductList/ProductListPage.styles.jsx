@@ -18,7 +18,3 @@ export const ProductListPageContainer = styled.div`
     width: 90%;
   }
 `;
-
-export const LoadingPageContainer = styled.div`
-  font-family: "Electrolize", sans-serif;
-`;

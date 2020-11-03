@@ -3,21 +3,48 @@ import {Link} from "react-router-dom";
 
 export const ProductDetailsPageContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  margin: 0 auto;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  margin: 20px auto;
   padding: 10px;
-  width: 100vw;
+  max-width: 80vw;
   
   & > div {
     margin-bottom: 2px;
   }
   
   @media screen and (max-width: 800px) {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 4px;
     min-width: unset;
-    width: 90%;
+    width: 100%;
+  }
+`;
+
+export const ImageContainer = styled.div`
+  @media screen and (min-width: 801px) {
+    grid-area: 1 / 1 / 3 / 2;
+    max-width: 40vw;
+    min-width: unset;
+  }
+`;
+
+export const DescriptionContainer = styled.div`
+  @media screen and (min-width: 801px) {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  
+  @media screen and (max-width: 432px) {
+    margin-top: -55px;
+  }
+`;
+
+export const ActionsContainer = styled.div`
+  @media screen and (min-width: 801px) {
+    grid-area: 2 / 2 / 3 / 3;
   }
 `;
 
@@ -32,7 +59,3 @@ export const LinkContainer = styled(Link)`
     padding: 0;
   }  
 `;
-
-// export const LoadingPageContainer = styled.div`
-//   font-family: "Electrolize", sans-serif;
-// `;

@@ -2,9 +2,16 @@ import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { API } from "../../api/api";
-import { Button, Paragraph, Project, Image } from "arwes";
-import {LinkContainer, ProductDetailsPageContainer} from "./ProductDetailsPage.styles";
+import { Button, Project, Image } from "arwes";
+import {
+  ActionsContainer,
+  DescriptionContainer,
+  ImageContainer,
+  LinkContainer,
+  ProductDetailsPageContainer
+} from "./ProductDetailsPage.styles";
 import Preloader from "../../components/Preloader/Preloader";
+import MobileInfo from "./MobileInfo/MobileInfo.component";
 
 
 const ProductDetailsPage = () => {
@@ -23,7 +30,6 @@ const ProductDetailsPage = () => {
     getProductData();
   }, []);
 
-  // The repeated condition >> refactor >> create Loader/Spinner
   if (!mobileItemData) {
     return <Preloader />;
   }
@@ -34,22 +40,32 @@ const ProductDetailsPage = () => {
         <Button animate>Back</Button>
       </LinkContainer>
       <ProductDetailsPageContainer>
-        <Image animate resources={mobileItemData.imgUrl} />
-        <Project animate header='DESCRIPTION'>
-          <Paragraph>Brand: {mobileItemData.brand}</Paragraph>
-          <Paragraph>Model: {mobileItemData.model}</Paragraph>
-          <Paragraph>Price: {mobileItemData.price} €</Paragraph>
-          <Paragraph>CPU: {mobileItemData.cpu}</Paragraph>
-          <Paragraph>RAM: {mobileItemData.ram}</Paragraph>
-          <Paragraph>OS: {mobileItemData.os}</Paragraph>
-          <Paragraph>Resolution: {mobileItemData.displayResolution}</Paragraph>
-          <Paragraph>Battery: {mobileItemData.battery}</Paragraph>
-          <Paragraph>Camera: {mobileItemData.primaryCamera}</Paragraph>
-          { mobileItemData.secondaryCmera && <Paragraph>2nd Camera: { mobileItemData.secondaryCmera }</Paragraph> }
-          <Paragraph>Dimensions: {mobileItemData.dimentions}</Paragraph>
-          { mobileItemData.weight && <Paragraph>Weight: { mobileItemData.weight } g</Paragraph> }
-        </Project>
-        <Project animate header='ACTIONS'>Lorem Lorem</Project>
+        <ImageContainer>
+          <Image animate resources={mobileItemData.imgUrl} />
+        </ImageContainer>
+
+        <DescriptionContainer>
+          <MobileInfo mobileItemData={mobileItemData} />
+          {/*<Project animate header='DESCRIPTION'>*/}
+          {/*  <Paragraph>Brand: {mobileItemData.brand}</Paragraph>*/}
+          {/*  <Paragraph>Model: {mobileItemData.model}</Paragraph>*/}
+          {/*  <Paragraph>Price: {mobileItemData.price} €</Paragraph>*/}
+          {/*  <Paragraph>CPU: {mobileItemData.cpu}</Paragraph>*/}
+          {/*  <Paragraph>RAM: {mobileItemData.ram}</Paragraph>*/}
+          {/*  <Paragraph>OS: {mobileItemData.os}</Paragraph>*/}
+          {/*  <Paragraph>Resolution: {mobileItemData.displayResolution}</Paragraph>*/}
+          {/*  <Paragraph>Battery: {mobileItemData.battery}</Paragraph>*/}
+          {/*  <Paragraph>Camera: {mobileItemData.primaryCamera}</Paragraph>*/}
+          {/*  { mobileItemData.secondaryCmera && <Paragraph>2nd Camera: { mobileItemData.secondaryCmera }</Paragraph> }*/}
+          {/*  <Paragraph>Dimensions: {mobileItemData.dimentions}</Paragraph>*/}
+          {/*  { mobileItemData.weight && <Paragraph>Weight: { mobileItemData.weight } g</Paragraph> }*/}
+          {/*</Project>*/}
+        </DescriptionContainer>
+
+        <ActionsContainer>
+          <Project animate header='ACTIONS'>Lorem Lorem</Project>
+        </ActionsContainer>
+
       </ProductDetailsPageContainer>
     </>
   )

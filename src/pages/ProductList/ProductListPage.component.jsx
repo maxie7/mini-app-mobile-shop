@@ -1,37 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { ProductListPageContainer } from "./ProductListPage.styles";
 import MobileItem from "./MobileItem/MobileItem.component";
-import { API } from "../../api/api";
 import Searcher from "./Searcher/Searcher.component";
 import Preloader from "../../components/Preloader/Preloader";
+import { getProducts } from "../../core/application/getProductsService"
+import { storage } from "../../core/infrastructure/storage"
+
+
+const getInitialValues = () => {
+  const savedProductsList = storage.get();
+  if(savedProductsList) {
+    JSON.parse(savedProductsList)
+  }
+  return undefined;
+}
 
 const ProductListPage = () => {
   const [ searchField, setSearchField ] = useState('');
-  const [ mobilesData, setMobilesData ] = useState(() => {
-    try {
-      const savedProductsList = localStorage.getItem("productsList");
-      return savedProductsList ? JSON.parse(savedProductsList) : undefined;
-    } catch (error) {
-      return undefined;
-    }
-  });
+  const [ mobilesData, setMobilesData ] = useState(getInitialValues());
 
   useEffect( () => {
     const getProductsData = async () => {
-      const productsData = await API.requestProducts();
+      const productsData = await getProducts()
       setMobilesData(productsData);
-      const json = JSON.stringify(productsData);
-      localStorage.setItem("productsList", json);
     };
 
     if (!mobilesData) {
       getProductsData();
     }
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("productsList", mobilesData)
-  }, [mobilesData]);
 
   const handleChange = e => {
     setSearchField(e.target.value);

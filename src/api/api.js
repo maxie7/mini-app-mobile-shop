@@ -7,7 +7,7 @@ const instance = axios.create({
 export const API = {
   requestProducts() {
     return instance.get(`/api/product`)
-      .then(response => response.data);
+      .then(response => response.data); // change with async
   },
 
   requestProduct(id) {

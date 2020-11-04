@@ -6,17 +6,32 @@ import Searcher from "./Searcher/Searcher.component";
 import Preloader from "../../components/Preloader/Preloader";
 
 const ProductListPage = () => {
-  const [ mobilesData, setMobilesData ] = useState(undefined);
   const [ searchField, setSearchField ] = useState('');
+  const [ mobilesData, setMobilesData ] = useState(() => {
+    try {
+      const savedProductsList = localStorage.getItem("productsList");
+      return savedProductsList ? JSON.parse(savedProductsList) : undefined;
+    } catch (error) {
+      return undefined;
+    }
+  });
 
   useEffect( () => {
     const getProductsData = async () => {
-      const result = await API.requestProducts();
-      setMobilesData(result.data);
+      const productsData = await API.requestProducts();
+      setMobilesData(productsData);
+      const json = JSON.stringify(productsData);
+      localStorage.setItem("productsList", json);
     };
 
-    getProductsData();
+    if (!mobilesData) {
+      getProductsData();
+    }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("productsList", mobilesData)
+  }, [mobilesData]);
 
   const handleChange = e => {
     setSearchField(e.target.value);
@@ -37,12 +52,13 @@ const ProductListPage = () => {
     <Searcher placeholder='search a ...' handleChange={handleChange} />
     <ProductListPageContainer>
       {filteredMobiles.map(mobileItem => (
-        <MobileItem key={mobileItem.id}
-                    id={mobileItem.id}
-                    brand={mobileItem.brand}
-                    model={mobileItem.model}
-                    price={mobileItem.price}
-                    imgUrl={mobileItem.imgUrl}
+        <MobileItem
+          key={mobileItem.id}
+          id={mobileItem.id}
+          brand={mobileItem.brand}
+          model={mobileItem.model}
+          price={mobileItem.price}
+          imgUrl={mobileItem.imgUrl}
         />
       ))}
     </ProductListPageContainer>

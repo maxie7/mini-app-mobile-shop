@@ -33,6 +33,8 @@ export const ImageContainer = styled.div`
 `;
 
 export const DescriptionContainer = styled.div`
+  font-size: 18px;
+
   @media screen and (min-width: 801px) {
     grid-area: 1 / 2 / 2 / 3;
   }

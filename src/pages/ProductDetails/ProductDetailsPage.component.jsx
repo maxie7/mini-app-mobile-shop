@@ -41,7 +41,7 @@ const ProductDetailsPage = () => {
       </LinkContainer>
 
       <ProductDetailsPageContainer>
-        
+
         <ImageContainer>
           <Image animate resources={mobileItemData.imgUrl} />
         </ImageContainer>

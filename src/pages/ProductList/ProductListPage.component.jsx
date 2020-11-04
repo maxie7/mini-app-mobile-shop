@@ -3,14 +3,14 @@ import { ProductListPageContainer } from "./ProductListPage.styles";
 import MobileItem from "./MobileItem/MobileItem.component";
 import Searcher from "./Searcher/Searcher.component";
 import Preloader from "../../components/Preloader/Preloader";
-import { getProducts } from "../../core/application/getProductsService"
-import { storage } from "../../core/infrastructure/storage"
+import { getProducts } from "../../core/application/getProductsService";
+import { storage } from "../../core/infrastructure/storage";
 
 
 const getInitialValues = () => {
   const savedProductsList = storage.get();
-  if(savedProductsList) {
-    JSON.parse(savedProductsList)
+  if (savedProductsList) {
+    return JSON.parse(savedProductsList);
   }
   return undefined;
 }
@@ -21,7 +21,7 @@ const ProductListPage = () => {
 
   useEffect( () => {
     const getProductsData = async () => {
-      const productsData = await getProducts()
+      const productsData = await getProducts();
       setMobilesData(productsData);
     };
 

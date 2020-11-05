@@ -5,10 +5,6 @@ const instance = axios.create({
 })
 
 export const API = {
-  // requestProducts() {
-  //   return instance.get(`/api/product`)
-  //     .then(response => response.data);
-  // },
 
   async requestProducts() {
     const response = await instance.get(`/api/product`);

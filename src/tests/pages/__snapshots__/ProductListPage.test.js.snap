@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render PLP - Product List Page 1`] = `ShallowWrapper {}`;
+exports[`ProductListPage component should render component (Product List Page) 1`] = `ShallowWrapper {}`;

@@ -5,7 +5,7 @@ import {productList} from '../../mocks/productListMock';
 
 describe('Application >> getProductsService', () =>{
 
-  it("should be called properly - happy path", async () => {
+  it("should be called getProducts properly - happy path", async () => {
     jest.spyOn(API,"requestProducts").mockReturnValue(productList)
     jest.spyOn(storage, "save").mockReturnValue()
 

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { API } from "../../api/api";
@@ -23,8 +23,8 @@ const ProductDetailsPage = () => {
     const getProductData = async () => {
       const productData = await API.requestProduct(id);
       // eslint-disable-next-line no-console
-      console.log(productData.data);
-      setMobileItemData(productData.data);
+      console.log(productData);
+      setMobileItemData(productData);
     };
 
     getProductData();

@@ -11,8 +11,9 @@ export const API = {
     return await response.data;
   },
 
-  requestProduct(id) {
-    return instance.get(`/api/product/${id}`)
+  async requestProduct(id) {
+    const response = await instance.get(`/api/product/${id}`);
+    return await response.data;
   }
 
 }

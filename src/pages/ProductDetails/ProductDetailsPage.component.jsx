@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PropTypes from 'prop-types';
-import { API } from "../../api/api";
 import { Button, Project, Image } from "arwes";
 import {
   ActionsContainer,
@@ -12,22 +11,31 @@ import {
 } from "./ProductDetailsPage.styles";
 import Preloader from "../../components/Preloader/Preloader";
 import MobileInfo from "./MobileInfo/MobileInfo.component";
+import { getProductInfo } from "../../core/application/getProductInfoService";
+import { storage } from "../../core/infrastructure/storage";
 
+const getInitialValues = (id) => {
+  const savedProductDetailsInfo = storage.get(id);
+  if (savedProductDetailsInfo) {
+    return JSON.parse(savedProductDetailsInfo);
+  }
+  return undefined;
+}
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
 
-  const [ mobileItemData, setMobileItemData ] = useState(undefined);
+  const [ mobileItemData, setMobileItemData ] = useState(getInitialValues(id));
 
   useEffect( () => {
     const getProductData = async () => {
-      const productData = await API.requestProduct(id);
-      // eslint-disable-next-line no-console
-      console.log(productData);
+      const productData = await getProductInfo(id);
       setMobileItemData(productData);
     };
 
-    getProductData();
+    if (!mobileItemData) {
+      getProductData();
+    }
   }, []);
 
   if (!mobileItemData) {

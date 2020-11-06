@@ -3,8 +3,8 @@ import {storage} from "../infrastructure/storage";
 
 
 export const getProductInfo = async (id) => {
-  const productData = await API.requestProduct(id);
-  storage.save("productDetailsInfo", JSON.stringify(productData));
+  const productDetailsInfo = await API.requestProduct(id);
+  storage.save(id, JSON.stringify(productDetailsInfo));
 
-  return productData;
+  return productDetailsInfo;
 }

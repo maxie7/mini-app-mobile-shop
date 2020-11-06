@@ -1,4 +1,4 @@
-export const productDetailInfo = [
+export const productDetailsInfo = [
   {
     "id": "ZmGrkLRPXOTpxsU4jjAcv",
     "brand": "Acer",

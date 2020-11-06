@@ -8,7 +8,7 @@ import { storage } from "../../core/infrastructure/storage";
 
 
 const getInitialValues = () => {
-  const savedProductsList = storage.get();
+  const savedProductsList = storage.get("productList");
   if (savedProductsList) {
     return JSON.parse(savedProductsList);
   }

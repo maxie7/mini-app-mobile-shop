@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
-    "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "arwes": "^1.0.0-alpha.5",
     "axios": "^0.21.0",
@@ -44,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^11.1.1",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.1.1",
     "babel-jest": "^26.6.1",
     "enzyme": "^3.11.0",

@@ -14,7 +14,7 @@ describe ('getInitialValues function should be called properly', () => {
     expect(result).toBe(undefined)
   })
 
-  it.only ('should return converted from JSON data', () => {
+  it ('should return converted from JSON data', () => {
     jest.spyOn(storage, "get").mockReturnValue(JSON.stringify(productDetailsInfo))
 
     const result = getInitialValues("correctId")

@@ -4,20 +4,12 @@ import MobileItem from "./MobileItem/MobileItem.component";
 import Searcher from "./Searcher/Searcher.component";
 import Preloader from "../../components/Preloader/Preloader";
 import { getProducts } from "../../core/application/getProductsService";
-import { storage } from "../../core/infrastructure/storage";
+import { getInitialValues } from "../../utils/getInitialValues";
 
-
-const getInitialValues = () => {
-  const savedProductsList = storage.get("productList");
-  if (savedProductsList) {
-    return JSON.parse(savedProductsList);
-  }
-  return undefined;
-}
 
 const ProductListPage = () => {
   const [ searchField, setSearchField ] = useState('');
-  const [ mobilesData, setMobilesData ] = useState(getInitialValues());
+  const [ mobilesData, setMobilesData ] = useState(getInitialValues("productList"));
 
   useEffect( () => {
     const getProductsData = async () => {

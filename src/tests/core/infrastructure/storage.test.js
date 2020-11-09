@@ -6,7 +6,7 @@ describe ('Infrastructure >> storage', () => {
 
   it ('saves a product list through storage save method', () => {
     storage.save("irrelevant", "irrelevant");
-    expect(localStorage.setItem).toBeCalledWith("irrelevant","irrelevant")
+    expect(localStorage.setItem).toBeCalledWith("irrelevant", "irrelevant")
   });
 
   it ('gets productList through storage get method', () => {
